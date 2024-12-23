@@ -35,6 +35,11 @@ class CalendarsController < ApplicationController
     end
   end
 
+  def destroy_user_session
+    reset_session
+    redirect_to root
+  end
+
   private
 
   def calendar_parameter

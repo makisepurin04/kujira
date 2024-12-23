@@ -11,6 +11,26 @@
   </head>
 
   <body>
+  <header>
+      <!--管理者権限
+      <% if user_signed_in? && current_user.admin? %>
+      <%= link_to 'カレンダー管理', calendars_path %>
+      <% end %> -->
+      <% if user_signed_in? %>
+        <li>
+          <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "サインアップ", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </header>
     <%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   </body>
 </html>
